@@ -5,14 +5,14 @@
 #include <unistd.h>
 
 int _printf(const char *format, ...);
-int _putchar(char c);
-int print_string (char *str);
-int print_number (int n);
-
-typedef struct type
+int print_string(va_list args);
+int print_int(va_list args);
+int print_char(va_list args);
+int print_percent(va_list args);
+typedef struct type_tt
 {
 char c;
 int (*p)(va_list);
-} type;
+} type_t;
 
 #endif
