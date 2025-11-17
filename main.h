@@ -9,4 +9,10 @@ int _putchar(char c);
 int print_string (char *str);
 int print_number (int n);
 
+typedef struct type
+{
+char c;
+int (*p)(va_list);
+} type;
+
 #endif
