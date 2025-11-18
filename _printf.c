@@ -23,7 +23,7 @@ if (format[i] == '%')
 {
 if (format[i + 1] == '\0')
 {
-return -1;
+return (-1);
 }
 found = 0;
 for (j = 0 ; table[j].p != NULL ; j++)
