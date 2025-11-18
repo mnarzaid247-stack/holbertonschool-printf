@@ -27,7 +27,7 @@ write(1, &format[i], 1);
 return(tottal + 1);
 }
 found = 0;
-for (j = 0 ; table[j].c != '\0' ; j++)
+for (j = 0 ; table[j].p != NULL ; j++)
 {
 if (format[i + 1] == table[j].c)
 {
@@ -46,6 +46,7 @@ if (format[i + 1] != '\0')
 {
 write(1, &format[i + 1], 1);
 tottal = tottal + 1;
+i++;
 }
 }
 }
