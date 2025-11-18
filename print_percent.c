@@ -2,8 +2,8 @@
 
 int print_percent(va_list args)
 {
-(void)args;
 char c = '%';
+(void)args;
 write(1, &c, 1);
 return 1;
 }
