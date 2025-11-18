@@ -23,8 +23,7 @@ if (format[i] == '%')
 {
 if (format[i + 1] == '\0')
 {
-write(1, &format[i], 1);
-return(tottal + 1);
+return -1;
 }
 found = 0;
 for (j = 0 ; table[j].p != NULL ; j++)
