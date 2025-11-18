@@ -6,7 +6,6 @@ int i;
 int found;
 int j;
 int tottal = 0;
-va_start(args, format);
 type_t table[] =
 {
 {'s' , print_string},
@@ -15,6 +14,7 @@ type_t table[] =
 {'%', print_percent},
 {'\0', NULL}
 };
+va_start(args, format);
 if (format == NULL)
 return(-1);
 for (i = 0 ; format[i] != '\0' ; i++)
