@@ -1,5 +1,7 @@
+.TH _PRINTF 3 "Holberton School" "Project: printf"
+
 .SH NAME
-_printf \- reimplementation of printf function that formats and writes output to standard output
+_printf - reimplementation of the printf function
 
 .SH SYNOPSIS
 .B #include "main.h"
@@ -44,8 +46,13 @@ void *, printed as an implementation-defined pointer representation.
 .IP "\fB%%\fR"
 A literal percent sign; no argument consumed.
 
-Note: Additional specifiers may be provided by a particular
-implementation. Consult the implementation header/comments for exact support.
+Note: Passing arguments of incorrect types results in undefined behavior.
+
+.SH LIMITATIONS
+This implementation does not support all features of the standard printf,
+such as field width, precision, length modifiers, or flags (e.g., '-', '+',
+' ', '#', '0'). Behavior for unsupported specifiers or malformed format
+strings is undefined.
 
 .SH RETURN VALUE
 On success, _printf returns the number of characters printed (excluding the
@@ -71,7 +78,7 @@ int main(void)
 }
 .fi
 
-.SH PORTABILITY AND NOTES
+.SH NOTES
 This function is reimplementation with the purpose of learning and is not guaranteed
 to provide all features, flags, field width or precision behavior of the system printf.
 When portability or full C standard compliance is required, use the standard
