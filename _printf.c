@@ -1,4 +1,18 @@
 #include "main.h"
+static type_t table[] = {
+	{'s', print_string},
+	{'d', print_int},
+	{'c', print_char},
+	{'%', print_percent},
+	{'i', print_int},
+	{'b', print_binary},
+	{'u', print_unsigned},
+	{'o', print_octal},
+	{'x', print_lower},
+	{'X', print_upper},
+	{'\0', NULL},
+};
+
 /**
 * format_handler - helper function to process format specifiers.
 * @i: current index in format string.
@@ -59,23 +73,10 @@ va_list args;
 int i;
 int total = 0;
 
-type_t table[] = {
-	{'s', print_string},
-	{'d', print_int},
-	{'c', print_char},
-	{'%', print_percent},
-	{'i', print_int},
-	{'b', print_binary},
-	{'u', print_unsigned},
-	{'o', print_octal},
-	{'x', print_lower},
-	{'X', print_upper},
-	{'\0', NULL},
-};
-va_start(args, format);
-
 if (format == NULL)
 	return (-1);
+
+va_start(args, format);
 for (i = 0 ; format[i] != '\0' ; i++)
 {
 	if (format[i] == '%')
@@ -84,7 +85,10 @@ for (i = 0 ; format[i] != '\0' ; i++)
 
 
 		if (added == -1)
+		{
+			va_end(args);
 			return (-1);
+		}
 		total = total + added;
 		i++;
 	}
@@ -94,5 +98,6 @@ for (i = 0 ; format[i] != '\0' ; i++)
 		total = total + 1;
 	}
 }
+va_end(args);
 return (total);
 }
