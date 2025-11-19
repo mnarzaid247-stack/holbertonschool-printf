@@ -63,7 +63,8 @@ type_t table[] = {
 	{'d', print_int},
 	{'c', print_char},
 	{'%', print_percent},
-	{'\0', NULL}
+	{'\0', NULL},
+	{'i', print_int},
 };
 va_start(args, format);
 
