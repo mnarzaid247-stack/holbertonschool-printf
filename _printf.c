@@ -74,7 +74,12 @@ for (i = 0 ; format[i] != '\0' ; i++)
 {
 	if (format[i] == '%')
 	{
-		total += format_handler(i, format, args, table);
+		int added = format_handler(i, format, args, table);
+		
+		if (added == -1)
+			return (-1);
+		total = total + added;
+		i++;
 	}
 	else
 	{
