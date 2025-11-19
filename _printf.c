@@ -73,7 +73,7 @@ for (i = 0 ; format[i] != '\0' ; i++)
 {
 	if (format[i] == '%')
 	{
-		total = fun(i, format, args, table);
+		total += format_handler(i, format, args, table);
 	}
 	else
 	{

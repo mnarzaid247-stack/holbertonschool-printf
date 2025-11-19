@@ -9,6 +9,7 @@ int print_string(va_list args);
 int print_int(va_list args);
 int print_char(va_list args);
 int print_percent(va_list args);
+int format_handler(int i, const char *format, va_list args, type_t table[]);
 /**
  * struct type_tt - mapping from a format specifier to its handler
  * @c: the format specifier character (e.g., 's', 'd', 'c', '%')
