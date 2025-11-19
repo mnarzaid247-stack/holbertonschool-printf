@@ -30,11 +30,17 @@ char c = '-';
 
 int count = 0;
 
+unsigned int n;
+
 if (i < 0)
 {
 write(1, &c, 1);
 count++;
-i = -i;
+n = -((unsigned int)i);
+}
+else
+{
+	n = i;
 }
 count = count + print_int_recursive(i);
 return (count);
