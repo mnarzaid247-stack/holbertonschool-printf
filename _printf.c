@@ -12,7 +12,9 @@
 int format_handler(int i, const char *format, va_list args, type_t table[])
 {
 int found;
+
 int j;
+
 int total = 0;
 
 		if (format[i + 1] == '\0')
@@ -55,7 +57,6 @@ int _printf(const char *format, ...)
 {
 va_list args;
 int i;
-
 int total = 0;
 
 type_t table[] = {
@@ -80,7 +81,8 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	if (format[i] == '%')
 	{
 		int added = format_handler(i, format, args, table);
-		
+
+
 		if (added == -1)
 			return (-1);
 		total = total + added;

@@ -4,10 +4,6 @@ Implementation of the C standard library function `printf` (named `_printf`).
 
 This repository contains a custom implementation of `_printf` that supports a subset of the standard conversion specifiers and is implemented as an educational project.
 
-Authors
-- Manar Alzhrano
-- Aljawharah Saad
-
 ## Overview
 
 `_printf` is a variadic function that formats and writes output to `stdout`. It mirrors the behavior of the standard `printf` for the supported specifiers and returns the number of characters printed (or a negative value on error).
@@ -86,34 +82,6 @@ Replace `*.c` with the appropriate source files in the repository if needed.
 - `main.h` — function prototypes and type definitions
 - `print_string.c`, `print_int.c`, `print_char.c`, `print_percent.c` — conversion handlers
 - `README.md` — this file
-.
-
-## Tests
-
-This repository does not include a test harness by default. Create simple test programs (like the example above) covering normal cases and edge cases:
-
-- `NULL` format handling
-- Empty format string
-- Consecutive specifiers
-- Unsupported specifier behavior
-
-Example edge test:
-
-```c
-_printf(NULL); /* should return -1 */
-_printf("%%"); /* prints % */
-_printf("%z"); /* prints %z using fallback behavior */
-```
-
-## Contribution
-
-Contributions are welcome. Follow these guidelines:
-
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/my-feature`.
-3. Add tests for new behavior.
-4. Run static checks and make sure code compiles with `-Wall -Wextra -Werror`.
-5. Submit a pull request with a clear description of changes.
 
 ## Style and quality gates
 
