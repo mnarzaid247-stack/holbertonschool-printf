@@ -5,7 +5,7 @@
 * Return: number of characters printed.
 */
 
-static int print_int_recursive(int n)
+static int print_int_recursive(unsigned int n)
 {
 int count = 0;
 
@@ -42,6 +42,6 @@ else
 {
 	n = i;
 }
-count = count + print_int_recursive(i);
+count = count + print_int_recursive(n);
 return (count);
 }
