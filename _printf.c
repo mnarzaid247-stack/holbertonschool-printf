@@ -65,6 +65,10 @@ type_t table[] = {
 	{'%', print_percent},
 	{'i', print_int},
 	{'b', print_binary},
+	{'u', print_unsigned},
+	{'o', print_octal},
+	{'x', print_lower},
+	{'X', print_upper},
 	{'\0', NULL},
 };
 va_start(args, format);
