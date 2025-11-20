@@ -46,17 +46,14 @@ int total = 0;
 			}
 		}
 		if (found)
-			i++;
-		else if (!found)
 		{
-			buffered_write(format[i]);
+			i++;
+		}
+		else if (!found && format[i + 1] != '\0')
+		{
+			buffered_write(format[i + 1]);
 			total = total + 1;
-			if (format[i + 1] != '\0')
-			{
-				buffered_write(format[i + 1]);
-				total = total + 1;
-				i++;
-			}
+			i++;
 		}
 return (total);
 }
