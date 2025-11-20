@@ -72,6 +72,8 @@ int _printf(const char *format, ...)
 va_list args;
 int i;
 int total = 0;
+int index = 0;
+char bufffer[1024];
 
 if (format == NULL)
 	return (-1);
@@ -81,8 +83,12 @@ for (i = 0 ; format[i] != '\0' ; i++)
 {
 	if (format[i] == '%')
 	{
+		if index > 0
+		{
+			write(1, bufffer, index);
+			index = 0;
+		}
 		int added = format_handler(i, format, args, table);
-
 
 		if (added == -1)
 		{
@@ -94,8 +100,13 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	}
 	else
 	{
-		write(1, &format[i], 1);
-		total = total + 1;
+		buffer[index++] = format[i];
+		total++;
+		if (index == 1024)
+		{
+			write(1, buffer, index);
+			index = 0;
+		}
 	}
 }
 va_end(args);

@@ -7,13 +7,9 @@
 int print_upper(va_list args)
 {
 unsigned int n = va_arg(args, unsigned int);
-
 int count = 0;
-
 char hex_digits[] = "0123456789ABCDEF";
-
 char buffer[32];
-
 int i = 0;
 
 if (n == 0)
