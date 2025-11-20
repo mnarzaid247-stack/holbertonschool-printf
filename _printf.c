@@ -101,18 +101,19 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	}
 	else
 	{
-		buffer[index++] = format[i];
-		total++;
 		if (index == 1023)
 		{
 			write(1, buffer, index);
 			index = 0;
 		}
+		buffer[index++] = format[i];
+		total++;
 	}
 }
 if (index > 0)
 {
 	write(1, buffer, index);
+	index = 0;
 }
 va_end(args);
 return (total);
