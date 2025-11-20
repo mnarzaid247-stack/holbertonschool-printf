@@ -103,7 +103,7 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	{
 		buffer[index++] = format[i];
 		total++;
-		if (index == 1024)
+		if (index == 1023)
 		{
 			write(1, buffer, index);
 			index = 0;
