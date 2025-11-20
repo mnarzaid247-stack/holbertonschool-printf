@@ -110,6 +110,10 @@ for (i = 0 ; format[i] != '\0' ; i++)
 		}
 	}
 }
+if (index > 0)
+{
+	write(1, buffer, index);
+}
 va_end(args);
 return (total);
 }
