@@ -86,7 +86,7 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	{
 		if (index > 0)
 		{
-			write(1, bufffer, index);
+			write(1, buffer, index);
 			index = 0;
 		}
 		added = format_handler(i, format, args, table);
