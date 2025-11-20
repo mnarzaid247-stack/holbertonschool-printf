@@ -101,14 +101,13 @@ for (i = 0 ; format[i] != '\0' ; i++)
 	}
 	else
 	{
-		if (index == 1023)
+		buffer[index++] = format[i];
+		total++;
+		if (index == 1024)
 		{
 			write(1, buffer, index);
 			index = 0;
 		}
-		buffer[index] = format[i];
-		index++;
-		total++;
 	}
 }
 if (index > 0)
