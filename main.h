@@ -25,7 +25,9 @@ int print_unsigned(va_list args);
 int print_octal(va_list args);
 int print_lower(va_list args);
 int print_upper(va_list args);
-int format_handler(int i, const char *format, va_list args, type_t table[]);
-int buffered_write(char c);
+int format_handler(int i, const char *format, va_list args,
+type_t table[]);
 int flush_buffer(void);
-#endif
+int buffered_write(char c);
+
+#endif /* MAIN_H */

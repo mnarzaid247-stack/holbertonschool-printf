@@ -11,10 +11,10 @@ int count = 0;
 
 char c;
 
-if (n / 8)
-	count = count + print_octal_rec(n / 8);
-c = (n % 8) + '0';
-write(1, &c, 1);
+	if (n / 8)
+		count = count + print_octal_rec(n / 8);
+	c = (n % 8) + '0';
+	buffered_write(c);
 return (count + 1);
 }
 /**
@@ -30,7 +30,7 @@ int count = 0;
 
 if (n == 0)
 {
-write(1, "0", 1);
+	buffered_write('0');
 	return (1);
 }
 count = print_octal_rec(n);

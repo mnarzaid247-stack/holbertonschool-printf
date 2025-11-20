@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 * print_string - function that prints a string.
-* @args: va_list containing the string to print.
+ * @args: va_list containing the string to print.
 * Return: number of characters printed.
 */
 int print_string(va_list args)

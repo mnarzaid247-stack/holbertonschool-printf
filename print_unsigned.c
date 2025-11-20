@@ -14,7 +14,7 @@ static int print_int_rec(unsigned int n)
 		count = count + print_int_rec(n / 10);
 	}
 	c = (n % 10) + '0';
-	write(1, &c, 1);
+	buffered_write(c);
 	return (count + 1);
 }
 /**
@@ -29,7 +29,7 @@ int print_unsigned(va_list args)
 
 	if (n == 0)
 	{
-		write(1, "0", 1);
+		buffered_write('0');
 		return (1);
 	}
 	count = count + print_int_rec(n);

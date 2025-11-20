@@ -14,10 +14,10 @@ int bit;
 
 unsigned int i = va_arg(args, unsigned int);
 
-if (i == 0)
+	if (i == 0)
 	{
-	write(1, "0", 1);
-	return (1);
+		buffered_write('0');
+		return (1);
 	}
 for (bit = 31 ; bit >= 0 ; bit--)
 	{
@@ -27,17 +27,17 @@ for (bit = 31 ; bit >= 0 ; bit--)
 		continue;
 	if (start == 0 && current_bit == 1)
 		{
-		start = 1;
-		count++;
-		write(1, "1", 1);
+	start = 1;
+	count++;
+	buffered_write('1');
 		continue;
 		}
 	if (start == 1)
 		{
 		if (current_bit == 1)
-			write(1, "1", 1);
+			buffered_write('1');
 		else
-			write(1, "0", 1);
+			buffered_write('0');
 		count++;
 		}
 	}

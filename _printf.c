@@ -13,6 +13,7 @@ static type_t table[] = {
 	{'\0', NULL},
 };
 
+
 /**
 * format_handler - helper function to process format specifiers.
 * @i: current index in format string.
@@ -23,12 +24,11 @@ static type_t table[] = {
 */
 
 
-int format_handler(int i, const char *format, va_list args, type_t table[])
+int format_handler(int i, const char *format, va_list args,
+type_t table[])
 {
 int found;
-
 int j;
-
 int total = 0;
 
 		if (format[i + 1] == '\0')
@@ -49,11 +49,11 @@ int total = 0;
 			i++;
 		else if (!found)
 		{
-			write(1, &format[i], 1);
+			buffered_write(format[i]);
 			total = total + 1;
 			if (format[i + 1] != '\0')
 			{
-				write(1, &format[i + 1], 1);
+				buffered_write(format[i + 1]);
 				total = total + 1;
 				i++;
 			}
@@ -73,6 +73,7 @@ va_list args;
 int i;
 int total = 0;
 int added;
+/* buffer uses internal index now */
 
 if (format == NULL)
 	return (-1);

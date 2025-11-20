@@ -4,17 +4,16 @@
 * @n: integer to print.
 * Return: number of characters printed.
 */
-
 static int print_int_recursive(unsigned int n)
 {
 int count = 0;
 
 char digit;
 
-if (n / 10)
-count = count + print_int_recursive(n / 10);
-digit = (n % 10) + '0';
-write(1, &digit, 1);
+	if (n / 10)
+		count = count + print_int_recursive(n / 10);
+	digit = (n % 10) + '0';
+	buffered_write(digit);
 return (count + 1);
 }
 /**
@@ -34,7 +33,7 @@ unsigned int n;
 
 if (i < 0)
 {
-write(1, &c, 1);
+	buffered_write(c);
 count++;
 n = -((unsigned int)i);
 }
@@ -42,6 +41,6 @@ else
 {
 	n = i;
 }
-count = count + print_int_recursive(n);
+	count = count + print_int_recursive(n);
 return (count);
 }

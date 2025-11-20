@@ -14,7 +14,7 @@ int i = 0;
 
 if (n == 0)
 {
-	write(1, "0", 1);
+	buffered_write('0');
 	return (1);
 }
 while (n > 0)
@@ -24,7 +24,7 @@ while (n > 0)
 }
 while (i > 0)
 {
-	write(1, &buffer[--i], 1);
+	buffered_write(buffer[--i]);
 	count++;
 }
 return (count);

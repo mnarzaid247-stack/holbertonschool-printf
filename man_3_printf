@@ -1,4 +1,4 @@
-.TH _PRINTF 3 "Holberton School" "Project: printf"
+
 
 .SH NAME
 _printf - reimplementation of the printf function
@@ -68,7 +68,10 @@ may return a negative value on write errors to stdout.
 Here is a simple example of usage:
 .nf
 #include "main.h"
-
+/**
+* main - example usage of _printf
+* Return: 0 on success, 1 on error
+*/
 int main(void)
 {
     int n;
