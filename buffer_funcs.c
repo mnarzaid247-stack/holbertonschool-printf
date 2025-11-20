@@ -11,7 +11,7 @@ int flush_buffer(void)
 {
 	if (index > 0)
 	{
-		write(1, buffer, index);
+		write(1, &buffer, index);
 		index = 0;
 	}
 	return (0);
