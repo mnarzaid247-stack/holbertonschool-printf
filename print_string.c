@@ -6,14 +6,16 @@
 */
 int print_string(va_list args)
 {
-    char *str = va_arg(args, char *);
-    int i, count = 0;
-    if (str == NULL)
-        str = "(null)";
-    for (i = 0; str[i] != '\0'; i++)
-    {
-        buffered_write(str[i]);
-        count++;
-    }
+	char *str = va_arg(args, char *);
+
+	int i, count = 0;
+
+	if (str == NULL)
+		str = "(null)";
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		buffered_write(str[i]);
+		count++;
+	}
 return (count);
 }
