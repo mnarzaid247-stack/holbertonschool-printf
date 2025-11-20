@@ -83,7 +83,6 @@ for (i = 0 ; format[i] != '\0' ; i++)
 {
 	if (format[i] == '%')
 	{
-		flush_buffer();
 		added = format_handler(i, format, args, table);
 
 		if (added == -1)
