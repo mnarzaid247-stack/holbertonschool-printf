@@ -1,39 +1,32 @@
 #include "main.h"
 static char buffer[1024];
+static int buf_index;
 
-static int index;
 /**
- * flush_buffer - writes the contents of the buffer to stdout
- *
- * Return: 0 on success
+ * flush_buffer - write contents of the internal buffer to stdout
+ * Return: current internal buffer index (0 after flush)
  */
 int flush_buffer(void)
 {
-	if (index > 0)
+	if (buf_index > 0)
 	{
-		write(1, &buffer, index);
-		index = 0;
+		write(1, buffer, buf_index);
+		buf_index = 0;
 	}
-	return (0);
+	return (buf_index);
 }
+
 /**
- * buffered_write - writes a character to the buffer
+ * buffered_write - append a character to the internal buffer
  * @c: character to write
- *
- * Return: 1 on success, 0 on failure
+ * Return: new internal buffer index
  */
 int buffered_write(char c)
 {
-	if (index < 1024)
-	{
-		buffer[index++] = c;
-		return (1);
-	}
-	else
+	if (buf_index >= (int)sizeof(buffer))
 	{
 		flush_buffer();
-		buffer[index++] = c;
-		return (1);
 	}
-	return (0);
+	buffer[buf_index++] = c;
+	return (buf_index);
 }
