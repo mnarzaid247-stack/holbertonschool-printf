@@ -106,7 +106,8 @@ for (i = 0 ; format[i] != '\0' ; i++)
 			write(1, buffer, index);
 			index = 0;
 		}
-		buffer[index++] = format[i];
+		buffer[index] = format[i];
+		index++;
 		total++;
 	}
 }
