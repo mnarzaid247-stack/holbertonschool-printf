@@ -23,7 +23,7 @@ int flush_buffer(void)
  */
 int buffered_write(char c)
 {
-	if (buf_index >= 1023)
+	if (buf_index > 1024)
 	{
 		flush_buffer();
 	}
