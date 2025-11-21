@@ -4,6 +4,8 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+#define BUFFER 1024
+
 /**
  * struct type_tt - mapping from a format specifier to its handler
  * @c: the format specifier character (e.g., 's', 'd', 'c', '%')

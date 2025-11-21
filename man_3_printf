@@ -1,94 +1,23 @@
+NAME
+       _printf - formatted output conversion
 
+SYNOPSIS
+       int _printf(const char *format, ...);
 
-.SH NAME
-_printf - reimplementation of the printf function
+DESCRIPTION
+       The _printf() function writes output according to a format string.
 
-.SH SYNOPSIS
-.B #include "main.h"
-.br
-.B int _printf(const char *format, ...);
+RETURN VALUE
+       Returns the number of characters printed.
 
-.SH DESCRIPTION
-_printf formats and writes a sequence of characters to stdout according to the
-argument format string. It is a custom reimplementation intended to behave
-similarly to the standard C library printf(3) for the supported conversion
-specifiers. The function parses the format string, consumes any additional
-arguments, and writes the resulting characters to standard output.
-
-.SH PARAMETERS
-.TP
-format
-A null-terminated format string containing plain characters and conversion
-specifiers. Conversion specifiers begin with '%' and are replaced by formatted
-representations of the corresponding arguments.
-.TP
-...
-An indeterminate number of additional arguments (of types determined by the
-conversion specifiers in format).
-
-.SH SUPPORTED CONVERSION SPECIFIERS
-The available conversion specifiers and their expected argument types
-include:
-.IP "\fB%c\fR"
-int, printed as a single character.
-.IP "\fB%s\fR"
-char *, printed as a null-terminated string.
-.IP "\fB%d\fR, \fB%i\fR"
-int, printed as signed decimal.
-.IP "\fB%u\fR"
-unsigned int, printed as unsigned decimal.
-.IP "\fB%o\fR"
-unsigned int, printed as unsigned octal.
-.IP "\fB%x\fR, \fB%X\fR"
-unsigned int, printed as unsigned hexadecimal (lower/upper case).
-.IP "\fB%p\fR"
-void *, printed as an implementation-defined pointer representation.
-.IP "\fB%%\fR"
-A literal percent sign; no argument consumed.
-
-Note: Passing arguments of incorrect types results in undefined behavior.
-
-.SH LIMITATIONS
-This implementation does not support all features of the standard printf,
-such as field width, precision, length modifiers, or flags (e.g., '-', '+',
-' ', '#', '0'). Behavior for unsupported specifiers or malformed format
-strings is undefined.
-
-.SH RETURN VALUE
-On success, _printf returns the number of characters printed (excluding the
-terminating null byte used internally). On failure, a negative value is
-returned.
-
-.SH ERRORS
-If a format specifier does not match the type of the corresponding argument,
-or if the format string is malformed, the behavior is undefined. Implementations
-may return a negative value on write errors to stdout.
-
-.SH EXAMPLES
-Here is a simple example of usage:
-.nf
-#include "main.h"
-/**
-* main - example usage of _printf
-* Return: 0 on success, 1 on error
-*/
-int main(void)
-{
-    int n;
-    n = _printf("Hello, %s! You have %d new Holberton tasks.\n", "Jojo", 5);
-    /* n now holds the number of characters written */
-    return (n < 0);
-}
-.fi
-
-.SH NOTES
-This function is reimplementation with the purpose of learning and is not guaranteed
-to provide all features, flags, field width or precision behavior of the system printf.
-When portability or full C standard compliance is required, use the standard
-printf(3) provided by the C library.
-
-.SH SEE ALSO
-printf(3)
-
-.SH AUTHOR
-Aljawharah Saad, Manar Alzhrano
+SUPPORTED FORMAT SPECIFIERS
+       %s  String
+       %c  Character  
+       %d  Signed integer
+       %i  Signed integer
+       %u  Unsigned integer
+       %o  Octal
+       %x  Hexadecimal (lowercase)
+       %X  Hexadecimal (uppercase)
+       %b  Binary
+       %%  Percent sign
