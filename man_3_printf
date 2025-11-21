@@ -1,23 +1,427 @@
-NAME
-       _printf - formatted output conversion
+.TH PRINTF 3 "November 2025" "Version 1.0" "Custom Library Functions"
+.SH NAME
+_printf \- formatted output conversion with style and grace
+.SH SYNOPSIS
+.B #include <stdio.h>
+.PP
+.BI "int _printf(const char *" format ", ...);"
+.br
+.SH DESCRIPTION
+.B _printf()
+is the most magnificent formatted output function you've ever encountered!
+Created by the legendary programming duo
+.I Aljawharah
+and
+.I Manar
+from Saudi Cohort 4 at Tuwaiq Academy, this function brings the power of printf
+to new heights of elegance and efficiency.
+.PP
+The function writes output to the standard output stream according to the
+.I format
+string and any additional arguments. It's like having a personal assistant
+that formats your output perfectly every single time!
+.PP
+Supported format specifiers include the most popular ones from the standard
+.B printf()
+family, plus some extra magic:
+.TP 12
+.B %s
+The string whisperer! Converts and displays strings with grace.
+.TP
+.B %c
+The character maestro! Prints individual characters beautifully.
+.TP
+.B %d %i
+The number ninjas! Handle signed integers like pros.
+.TP
+.B %u
+The unsigned champion! Works with non-negative integers.
+.TP
+.B %o
+The octal oracle! Displays numbers in base-8 glory.
+.TP
+.B %x %X
+The hexadecimal heroes! Lowercase and uppercase hex formatting.
+.TP
+.B %b
+The binary boss! Shows numbers in pure binary form.
+.TP
+.B %%
+The percent perfectionist! Displays a literal % character.
+.PP
+.B Buffer Magic:
+This implementation uses a 1024-character buffer for maximum performance,
+reducing system calls and making your output lightning fast!
+.SH RETURN VALUE
+Upon successful completion,
+.B _printf()
+returns the number of characters written (excluding the null byte used to end output to strings).
+.PP
+If an output error is encountered, a negative value is returned.
+.PP
+Think of it as your personal output counter, always keeping track! 📊
+.SH FORMAT SPECIFIERS EXPLAINED
+.SS String Formatting (%s)
+.PP
+The most versatile specifier! Handles string inputs with elegance:
+.PP
+.RS
+.B _printf("Hello %s!", "World");
+.RE
+.PP
+Output:
+.PP
+.RS
+Hello World!
+.RE
+.PP
+Null pointers are handled gracefully by displaying "(null)".
+.SS Character Display (%c)
+.PP
+Perfect for printing individual characters:
+.PP
+.RS
+.B _printf("Grade: %c", 'A');
+.RE
+.PP
+Output:
+.PP
+.RS
+Grade: A
+.RE
+.SS Integer Mastery (%d, %i)
+.PP
+These specifiers handle signed integers with finesse:
+.PP
+.RS
+.B _printf("Temperature: %d°C", -5);
+.br
+.B _printf("Score: %i", 42);
+.RE
+.PP
+Output:
+.PP
+.RS
+Temperature: -5°C
+.br
+Score: 42
+.RE
+.SS Unsigned Excellence (%u)
+.PP
+Specializes in non-negative integers:
+.PP
+.RS
+.B _printf("Age: %u", 25);
+.RE
+.PP
+Output:
+.PP
+.RS
+Age: 25
+.RE
+.SS Binary Brilliance (%b)
+.PP
+The most unique specifier! Displays numbers in binary:
+.PP
+.RS
+.B _printf("15 in binary: %b", 15);
+.RE
+.PP
+Output:
+.PP
+.RS
+15 in binary: 1111
+.RE
+.SS Octal Opulence (%o)
+.PP
+Shows numbers in base-8:
+.PP
+.RS
+.B _printf("64 in octal: %o", 64);
+.RE
+.PP
+Output:
+.PP
+.RS
+64 in octal: 100
+.RE
+.SS Hexadecimal Harmony (%x, %X)
+.PP
+Displays numbers in hexadecimal base:
+.PP
+.RS
+.B _printf("255 in hex: %x", 255);
+.br
+.B _printf("255 in HEX: %X", 255);
+.RE
+.PP
+Output:
+.PP
+.RS
+255 in hex: ff
+.br
+255 in HEX: FF
+.RE
+.SS Percent Perfection (%%)
+.PP
+When you absolutely need to display a percent sign:
+.PP
+.RS
+.B _printf("Progress: %d%% complete", 75);
+.RE
+.PP
+Output:
+.PP
+.RS
+Progress: 75% complete
+.RE
+.SH ARCHITECTURE HIGHLIGHTS
+The beautiful architecture behind this masterpiece includes:
+.TP 3
+.B Format Handler Dispatch Table
+A sophisticated routing system that directs each format specifier to its
+specialized handler function.
+.TP
+.B Buffered I/O Management
+Efficient 1024-character buffer that minimizes system calls.
+.TP
+.B Modular Design
+Clean separation of concerns with individual handler functions.
+.TP
+.B Performance Optimization
+Early returns and efficient algorithms throughout.
+.SH ERROR HANDLING
+The function is designed with robust error handling:
+.IP \(bu 3
+Null format string protection
+.IP \(bu 3
+Buffer overflow prevention
+.IP \(bu 3
+Proper return value signaling
+.IP \(bu 3
+Graceful handling of edge cases
+.PP
+Because even magnificent functions need to be safe and reliable! 🛡️
+.SH EXAMPLES
+.PP
+Here's how to make the most of this amazing function:
+.PP
+.SS Basic Usage
+.PP
+.RS
+.B #include "printf.h"
+.PP
+.B int main(void)
+.br
+.B {
+.br
+.B     _printf("Hello, %s!\\n", "World");
+.br
+.B     _printf("The answer is %d\\n", 42);
+.br
+.B     return (0);
+.br
+.B }
+.RE
+.PP
+Output:
+.PP
+.RS
+Hello, World!
+.br
+The answer is 42
+.RE
+.PP
+.SS Academic Showcase
+.PP
+.RS
+.B _printf("Project: %s\\n", "Custom printf()");
+.br
+.B _printf("Students: %s & %s\\n", "Aljawharah", "Manar");
+.br
+.B _printf("Institution: %s\\n", "Tuwaiq Academy");
+.br
+.B _printf("Academy: %s\\n", "Holberton School");
+.br
+.B _printf("Country: %s\\n", "Saudi Arabia");
+.br
+.B _printf("Cohort: %d\\n", 4);
+.RE
+.PP
+.SS Number Bases Demonstration
+.PP
+.RS
+.B int num = 64;
 
-SYNOPSIS
-       int _printf(const char *format, ...);
-
-DESCRIPTION
-       The _printf() function writes output according to a format string.
-
-RETURN VALUE
-       Returns the number of characters printed.
-
-SUPPORTED FORMAT SPECIFIERS
-       %s  String
-       %c  Character  
-       %d  Signed integer
-       %i  Signed integer
-       %u  Unsigned integer
-       %o  Octal
-       %x  Hexadecimal (lowercase)
-       %X  Hexadecimal (uppercase)
-       %b  Binary
-       %%  Percent sign
+.br
+.B _printf("Number %d in different bases:\\n", num);
+.br
+.B _printf("  Decimal: %d\\n", num);
+.br
+.B _printf("  Octal: %o\\n", num);
+.br
+.B _printf("  Hex: %x\\n", num);
+.br
+.B _printf("  Binary: %b\\n", num);
+.RE
+.PP
+Output:
+.PP
+.RS
+Number 64 in different bases:
+Decimal: 64
+Octal: 100
+Hex: 40
+Binary: 1000000
+.RE
+.PP
+.SS Complex Formatting
+.PP
+.RS
+.B _printf("Student Report:\\n");
+.br
+.B _printf("  Name: %s\\n", "Aljawharah");
+.br
+.B _printf("  Age: %d\\n", 25);
+.br
+.B _printf("  Grade: %c\\n", 'A');
+.br
+.B _printf("  Binary ID: %b\\n", 42);
+.RE
+.PP
+.SS Mixed Specifiers
+.PP
+.RS
+.B _printf("Welcome %s from %s!\\n", "Aljawharah", "Saudi Arabia");
+.br
+.B _printf("Progress: %d%% complete, %d/%d tasks done\\n",
+.br
+.B         75, 3, 4);
+.br
+.B _printf("Memory: 0x%X bytes used\\n", 1024);
+.RE
+.SH ADVANCED FEATURES
+.PP
+This implementation goes beyond the basics:
+.TP 3
+.B High Performance Buffer
+1024-character buffer ensures optimal I/O efficiency.
+.TP
+.B Extensible Architecture
+Easy to add new format specifiers via the dispatch table.
+.TP
+.B Memory Efficient
+Stack-based buffer management minimizes dynamic allocation.
+.TP
+.B Clean Codebase
+Well-documented and organized for educational value.
+.SH COMPILATION
+.PP
+To use this magnificent function in your projects:
+.PP
+.RS
+.B gcc -Wall -Wextra -Werror your_file.c -o your_program
+.RE
+.PP
+Or use the provided Makefile:
+.PP
+.RS
+.B make && ./printf_test
+.RE
+.SH FILES
+.TP 3
+.I printf.h
+Header file containing all function declarations and the format handler table.
+.TP
+.I _printf.c
+Main implementation of the _printf function.
+.TP
+.I format_handler.c
+Format specifier dispatch mechanism.
+.TP
+.I handlers/
+Directory containing individual format handler implementations.
+.TP
+.I buffer.c
+Buffer management and I/O operations.
+.SH ENVIRONMENT
+No special environment variables are required.
+However, for best performance, ensure your system has sufficient stack space
+for the 1024-character buffer.
+.SH ATTRIBUTES
+.TP
+.B Performance
+Optimized for high-speed output with minimal system calls.
+.SH NOTES
+.PP
+This implementation was created as an educational project at Holberton School.
+It demonstrates advanced C programming concepts including:
+.IP \(bu 3
+Variadic functions and argument processing
+.IP \(bu 3
+Buffer management and I/O optimization
+.IP \(bu 3
+Function pointer tables and dispatch mechanisms
+.IP \(bu 4
+Number system conversions (binary, octal, decimal, hexadecimal)
+.IP \(bu 3
+Modular programming and code organization
+.PP
+Perfect for learning and understanding how the standard library functions work
+under the hood! 🎓
+.SH SEE ALSO
+.BR printf (3),
+.BR fprintf (3),
+.BR sprintf (3),
+.BR puts (3),
+.BR putchar (3)
+.PP
+.SH CONFORMING TO
+This implementation conforms to the C89/C90 standard for printf-like functions
+with the specified format specifiers supported.
+.SH BUGS
+Currently, width and precision modifiers (like %10s or %.2f) are not supported.
+This may be added in future versions for even more formatting power!
+.PP
+.SH AUTHOR
+.PP
+Created with passion and precision by:
+.PP
+.RS
+.B 👩‍💻 Aljawharah
+.br
+.B Format Handler Specialist
+.br
+.B Saudi Cohort 4 - Holberton School
+.br
+.B Tuwaiq Academy, Saudi Arabia
+.PP
+.B 👩‍💻 Manar
+.br
+.B Buffer Management Expert
+.br
+.B Saudi Cohort 4 - Holberton School
+.br
+.B Tuwaiq Academy, Saudi Arabia
+.RE
+.PP
+Special thanks to Holberton School and Tuwiq Academy for providing the
+educational environment that made this masterpiece possible!
+.PP
+.SH VERSION
+Version 1.0 - November 2025
+.PP
+This man page created by the same team that brought you the most fantastic
+printf implementation in the history of C programming! 🌟
+.PP
+.BR ""
+.BR "Happy coding, and may your output always be perfectly formatted!" 🚀
+.PP
+.SH COLOPHON
+This man page is part of the Custom Printf Project by Saudi Cohort 4.
+For more information, visit the project repository or consult the comprehensive
+README.md and interactive HTML documentation.
+.PP
+*\"Turning C code into art, one format specifier at a time!\"* 🎨
+.PP
+Last updated: November 21, 2025
