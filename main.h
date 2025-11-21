@@ -18,6 +18,7 @@ int (*p)(va_list);
 } type_t;
 
 int _printf(const char *format, ...);
+int print_S(va_list args);
 int print_string(va_list args);
 int print_int(va_list args);
 int print_char(va_list args);

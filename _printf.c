@@ -10,6 +10,7 @@ static type_t table[] = {
 	{'o', print_octal},
 	{'x', print_lower},
 	{'X', print_upper},
+	{'S', print_S},
 	{'\0', NULL},
 };
 
