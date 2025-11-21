@@ -6,7 +6,7 @@ static int buf_index;
  * flush_buffer - write contents of the internal buffer to stdout
  * Return: current internal buffer index (0 after flush)
  */
-int flush_buffer(void)
+void flush_buffer(void)
 {
 	if (buf_index > 0)
 	{
@@ -20,7 +20,7 @@ int flush_buffer(void)
  * @c: character to write
  * Return: new internal buffer index
  */
-int buffered_write(char c)
+void buffered_write(char c)
 {
 	if (buf_index >= 1024)
 	{
