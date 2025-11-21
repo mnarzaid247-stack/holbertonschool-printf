@@ -49,7 +49,7 @@ int total = 0;
 		{
 			i++;
 		}
-		else if (!found && format[i + 1] != '\0')
+		else if (!found)
 		{
 			buffered_write(format[i + 1]);
 			total = total + 1;

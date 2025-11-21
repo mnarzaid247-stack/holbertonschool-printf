@@ -13,7 +13,6 @@ int flush_buffer(void)
 		write(1, buffer, buf_index);
 		buf_index = 0;
 	}
-	return (buf_index);
 }
 
 /**
@@ -23,10 +22,9 @@ int flush_buffer(void)
  */
 int buffered_write(char c)
 {
-	if (buf_index == 1024)
+	if (buf_index >= 1024)
 	{
 		flush_buffer();
 	}
 	buffer[buf_index++] = c;
-	return (buf_index);
 }
